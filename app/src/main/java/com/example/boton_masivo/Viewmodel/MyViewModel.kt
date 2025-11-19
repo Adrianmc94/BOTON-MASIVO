@@ -1,8 +1,9 @@
-package com.example.boton_masivo
+package com.example.boton_masivo.Viewmodel
 
 // MyViewModel.kt
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.boton_masivo.data.ButtonState
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow

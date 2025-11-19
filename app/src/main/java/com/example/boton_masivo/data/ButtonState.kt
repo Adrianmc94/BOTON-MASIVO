@@ -1,4 +1,4 @@
-package com.example.boton_masivo
+package com.example.boton_masivo.data
 
 enum class ButtonState {
     TEXT_DISPLAY,
