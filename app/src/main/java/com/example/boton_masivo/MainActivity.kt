@@ -1,4 +1,6 @@
-// MainActivity.kt
+
+package com.example.boton_masivo
+
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -10,6 +12,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.example.boton_masivo.viewmodel.MyViewModel
 import com.example.boton_masivo.data.ButtonState
 
 class MainActivity : ComponentActivity() {
@@ -66,9 +69,9 @@ fun StateScreen(viewModel: MyViewModel = viewModel()) {
 
         // Define el texto del botón basado en el estado actual
         val buttonText = when (currentState) {
-            ButtonState.TEXT_DISPLAY -> "Ejecutar Acción (Texto)"
-            ButtonState.COUNTDOWN -> "INICIAR Cuenta Atrás"
-            ButtonState.SOUND_NOTE -> "Reproducir Nota (Sonido)"
+            ButtonState.TEXTO -> "Ejecutar Acción (Texto)"
+            ButtonState.CONTADOR -> "Iniciar Cuenta Atrás"
+            ButtonState.SONIDO -> "Reproducir Nota (Sonido)"
         }
 
         Button(

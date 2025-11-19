@@ -1,4 +1,4 @@
-package com.example.boton_masivo.Viewmodel
+package com.example.boton_masivo.viewmodel
 
 // MyViewModel.kt
 import androidx.lifecycle.ViewModel
@@ -13,7 +13,7 @@ import kotlinx.coroutines.launch
 class MyViewModel : ViewModel() {
 
     // StateFlow para el estado actual del botón (Observado por la UI)
-    private val _currentState = MutableStateFlow(ButtonState.TEXT_DISPLAY)
+    private val _currentState = MutableStateFlow(ButtonState.TEXTO)
     val currentState: StateFlow<ButtonState> = _currentState
 
     // StateFlow para el texto que se muestra en el Composable (Observado por la UI)
@@ -28,17 +28,17 @@ class MyViewModel : ViewModel() {
         cancelCountdown()
 
         _currentState.value = when (_currentState.value) {
-            ButtonState.TEXT_DISPLAY -> {
+            ButtonState.TEXTO -> {
                 _displayMessage.value = "Estado 2: Listo para la cuenta atrás."
-                ButtonState.COUNTDOWN
+                ButtonState.CONTADOR
             }
-            ButtonState.COUNTDOWN -> {
+            ButtonState.CONTADOR -> {
                 _displayMessage.value = "Estado 3: Pulsa para sonido."
-                ButtonState.SOUND_NOTE
+                ButtonState.SONIDO
             }
-            ButtonState.SOUND_NOTE -> {
+            ButtonState.SONIDO -> {
                 _displayMessage.value = "Estado 1: Pulsa el botón de acción."
-                ButtonState.TEXT_DISPLAY
+                ButtonState.TEXTO
             }
         }
     }
@@ -47,13 +47,13 @@ class MyViewModel : ViewModel() {
     fun performAction() {
         // La ejecución cambia con la expresión 'when'
         when (_currentState.value) {
-            ButtonState.TEXT_DISPLAY -> {
+            ButtonState.TEXTO -> {
                 _displayMessage.value = "Acción de texto completada en Estado 1."
             }
-            ButtonState.COUNTDOWN -> {
+            ButtonState.CONTADOR -> {
                 startCountdown()
             }
-            ButtonState.SOUND_NOTE -> {
+            ButtonState.SONIDO -> {
                 _displayMessage.value = "Sonido o Nota Reproducida en Estado 3."
                 // Aquí iría la llamada a la función de sonido real
             }
